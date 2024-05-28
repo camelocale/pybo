@@ -2,6 +2,10 @@
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from starlette.config import Config
+
+config = Config('.env')
+SQLALCHEMY_DATABASE_URL = config('SQLALCHEMY_DATABASE_URL')
 
 # fastapi에 ORM을 적용하기 위해서 필요한 데이터 베이스 설정이다.
 # Dependency Injection(의존성 주입)은 필요한 기능을 선언하여 사용할 수 있다는 의미이다. 
